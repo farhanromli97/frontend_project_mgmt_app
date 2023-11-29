@@ -20,9 +20,9 @@ const ProjectForm = ({isVisible, closeForm, setProjectData}) => {
             const config = {
                 headers: {Authorization: `Bearer ${token}`}
             }
-
-            await axios.post('http://localhost:8080/project', reqBody, config)
-            const res = await axios.get('http://localhost:8080/projects', config)
+            console.log("checkpoint1")
+            await axios.post(`${import.meta.env.VITE_BASE_API_URL}/project`, reqBody, config)
+            const res = await axios.get(`${import.meta.env.VITE_BASE_API_URL}/projects`, config)
             closeForm()
             setProjectData(res.data.data)
         } catch (error) {

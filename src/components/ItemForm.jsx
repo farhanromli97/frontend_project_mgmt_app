@@ -20,8 +20,8 @@ const ItemForm = ({isVisible, closeForm, setItemData, project_id}) => {
                 headers: {Authorization: `Bearer ${token}`}
             }
 
-            await axios.post('http://localhost:8080/item/', reqBody, config)
-            const res = await axios.get(`http://localhost:8080/items/${project_id}`, config)
+            await axios.post(`${import.meta.env.VITE_BASE_API_URL}/item/`, reqBody, config)
+            const res = await axios.get(`${import.meta.env.VITE_BASE_API_URL}items/${project_id}`, config)
             closeForm()
             setItemData(res.data.data)
         } catch (error) {
