@@ -21,7 +21,7 @@ const ItemForm = ({isVisible, closeForm, setItemData, project_id}) => {
             }
 
             await axios.post(`${import.meta.env.VITE_BASE_API_URL}/item/`, reqBody, config)
-            const res = await axios.get(`${import.meta.env.VITE_BASE_API_URL}items/${project_id}`, config)
+            const res = await axios.get(`${import.meta.env.VITE_BASE_API_URL}/items/${project_id}`, config)
             closeForm()
             setItemData(res.data.data)
         } catch (error) {
